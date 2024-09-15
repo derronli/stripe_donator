@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+from buydenniscoffee.secrets import SECRET_KEY
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,9 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '2vc8#$fzhh-z9h(-(5kl2kj)ijq-1_(s0j5g4&)+9z%0t30x-1'
-
-# SECURITY WARNING: don't run with debug turned on in production!
+SECRET_KEY = SECRET_KEY
 DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -39,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'base.apps.BaseConfig',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -129,5 +129,3 @@ STATICFILES_DIRS = [
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
-
-STRIPE_KEY = os.environ.get("STRIPE_KEY")
